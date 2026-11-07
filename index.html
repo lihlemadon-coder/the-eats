@@ -35,8 +35,6 @@
     .nav a { color: var(--muted); font-size: .92rem; font-weight: 600; transition: color .2s; }
     .nav a:hover { color: var(--ink); }
     .header-actions { align-items: center; display: flex; gap: 16px; }
-    .location { color: var(--muted); font-size: .8rem; }
-    .location strong { color: var(--ink); display: block; font-size: .85rem; }
     .cart-button { align-items: center; background: var(--green); border-radius: 50px; color: white; display: flex; gap: 10px; padding: 10px 15px; transition: transform .2s; }
     .cart-button:hover { transform: translateY(-2px); }
     .cart-count { display: none; }
@@ -56,26 +54,26 @@
     .hero-note span { font-size: 1.4rem; }
     .hero-note p { font-size: .78rem; font-weight: 700; line-height: 1.2; }
     .hero-note small { display: block; font-weight: 500; }
-    .info-strip { background: var(--green); color: white; }
-    .info-inner { align-items: center; display: flex; justify-content: space-between; min-height: 83px; }
-    .info-item { align-items: center; display: flex; gap: 13px; }
-    .info-icon { align-items: center; background: rgba(255,255,255,.12); border-radius: 50%; display: flex; font-size: 1.1rem; height: 38px; justify-content: center; width: 38px; }
-    .info-item p { color: #bdc9bd; font-size: .76rem; }
-    .info-item strong { display: block; font-size: .9rem; }
+    .hero-contact { background: var(--green); border-radius: 16px; color: white; display: grid; gap: 13px; margin-top: 23px; max-width: 470px; padding: 17px 19px; }
+    .hero-contact-item { align-items: center; display: grid; gap: 3px 12px; grid-template-columns: 28px 1fr; }
+    .hero-contact-item > span { grid-row: span 2; font-size: 1rem; text-align: center; }
+    .hero-contact-item p { color: #bdc9bd; font-size: .72rem; }
+    .hero-contact-item strong, .hero-contact-item a { color: white; font-size: .84rem; font-weight: 700; }
+    .hero-contact-item a:hover { color: var(--lime); }
     .menu-section { padding: 92px 0 110px; }
-    .section-top { align-items: end; display: flex; justify-content: space-between; margin-bottom: 31px; }
-    .section-top h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.4rem, 5vw, 4.3rem); letter-spacing: -.08em; line-height: .95; margin-top: 11px; }
-    .section-top p { color: var(--muted); max-width: 280px; }
-    .filters { display: flex; gap: 9px; margin-bottom: 29px; overflow-x: auto; padding-bottom: 4px; }
-    .filter { background: transparent; border: 1px solid #d7dcd2; border-radius: 50px; color: var(--muted); font-size: .82rem; font-weight: 700; padding: 10px 17px; white-space: nowrap; }
+    .section-top { margin-bottom: 28px; }
+    .section-top h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.4rem, 5vw, 4.3rem); letter-spacing: -.08em; line-height: .95; }
+    .menu-layout { align-items: start; display: grid; gap: 24px; grid-template-columns: 185px minmax(0, 1fr); }
+    .filters { display: flex; flex-direction: column; gap: 9px; position: sticky; top: 20px; }
+    .filter { background: transparent; border: 1px solid #d7dcd2; border-radius: 12px; color: var(--muted); font-size: .86rem; font-weight: 700; padding: 12px 15px; text-align: left; }
     .filter.active, .filter:hover { background: var(--orange); border-color: var(--orange); color: white; }
-    .menu-grid { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+    .menu-results { background: var(--paper); border: 1px solid #edeee7; border-radius: 20px; max-height: 760px; min-height: 420px; overflow-y: auto; overscroll-behavior: contain; padding: 18px; scrollbar-color: #b6c0b4 transparent; scrollbar-width: thin; }
+    .menu-grid { display: grid; gap: 18px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .food-card { background: var(--paper); border: 1px solid #edeee7; border-radius: 18px; overflow: hidden; transition: box-shadow .2s, transform .2s; }
     .food-card:hover { box-shadow: var(--shadow); transform: translateY(-4px); }
     .food-image { height: 198px; overflow: hidden; position: relative; }
     .food-image img { height: 100%; object-fit: cover; transition: transform .4s; width: 100%; }
     .food-card:hover .food-image img { transform: scale(1.05); }
-    .tag { background: var(--lime); border-radius: 30px; color: var(--green); font-size: .67rem; font-weight: 700; left: 13px; padding: 6px 10px; position: absolute; top: 13px; }
     .food-details { padding: 18px 17px 17px; }
     .food-title { align-items: center; display: flex; justify-content: space-between; }
     .food-title h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; }
@@ -90,10 +88,12 @@
     .story .eyebrow { color: var(--lime); }
     .story-image { border-radius: 20px; height: 325px; object-fit: cover; width: 100%; }
     footer { background: var(--green); color: white; padding: 32px 0; }
-    .footer-inner { align-items: center; display: flex; justify-content: space-between; }
-    footer p { color: #aab8ac; font-size: .8rem; }
-    .socials { display: flex; gap: 17px; }
-    .socials a { color: var(--lime); font-size: .78rem; font-weight: 700; }
+    .footer-inner { display: grid; gap: 32px; grid-template-columns: 1.2fr 1fr 1fr; }
+    footer h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; margin-bottom: 10px; }
+    footer p, .footer-links a { color: #bdc9bd; font-size: .82rem; }
+    .footer-details, .footer-links { display: grid; gap: 7px; align-content: start; }
+    .footer-links a:hover, .footer-details a:hover { color: var(--lime); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.16); color: #aab8ac; font-size: .76rem; margin-top: 28px; padding-top: 18px; }
     .overlay { background: rgba(11, 20, 14, .48); inset: 0; opacity: 0; pointer-events: none; position: fixed; transition: opacity .3s; z-index: 5; }
     .overlay.visible { opacity: 1; pointer-events: auto; }
     .cart-drawer { background: var(--paper); box-shadow: -10px 0 45px rgba(0,0,0,.14); display: flex; flex-direction: column; height: 100%; max-width: 420px; padding: 27px; position: fixed; right: 0; top: 0; transform: translateX(100%); transition: transform .3s ease; width: 90%; z-index: 6; }
@@ -123,18 +123,19 @@
     @media (min-width: 761px) and (max-width: 1024px) {
       .container { padding-left: 38px; padding-right: 38px; }
       .nav { gap: 20px; margin-left: 25px; }
-      .location { display: none; }
       .hero { gap: 35px; min-height: 475px; }
       .hero h1 { font-size: clamp(4rem, 8vw, 5.4rem); }
       .hero-art { height: 400px; }
-      .menu-grid { grid-template-columns: repeat(2, 1fr); }
+      .menu-layout { gap: 16px; grid-template-columns: 155px minmax(0, 1fr); }
+      .menu-results { padding: 13px; }
+      .menu-grid { gap: 12px; grid-template-columns: 1fr; }
       .story-grid { gap: 40px; }
     }
 
     @media (max-width: 760px) {
       .container { padding-left: 18px; padding-right: 18px; }
       .site-header { height: 70px; }
-      .nav, .location { display: none; }
+      .nav { display: none; }
       .hero, .story-grid { grid-template-columns: 1fr; }
       .hero { gap: 35px; padding-top: 35px; }
       .hero h1 { font-size: clamp(3.25rem, 15vw, 5rem); }
@@ -142,15 +143,24 @@
       .hero-buttons { align-items: stretch; flex-direction: column; }
       .primary-button, .secondary-button { text-align: center; width: 100%; }
       .hero-art { height: 320px; }
-      .info-inner { align-items: start; flex-direction: column; gap: 15px; padding-bottom: 22px; padding-top: 22px; }
+      .hero-contact { max-width: none; }
       .menu-section { padding: 65px 0 75px; }
-      .section-top { align-items: start; flex-direction: column; gap: 15px; }
-      .menu-grid { grid-template-columns: 1fr; }
-      .food-image { height: 220px; }
+      .menu-layout { gap: 12px; grid-template-columns: 112px minmax(0, 1fr); }
+      .filters { top: 10px; }
+      .filter { font-size: .74rem; padding: 10px 8px; text-align: center; }
+      .menu-results { max-height: 72vh; min-height: 360px; padding: 9px; }
+      .menu-grid { gap: 11px; grid-template-columns: 1fr; }
+      .food-image { height: 145px; }
+      .food-details { padding: 12px 10px; }
+      .food-title { align-items: start; gap: 5px; }
+      .food-title h3 { font-size: .93rem; }
+      .price { font-size: .8rem; }
+      .food-details p { font-size: .75rem; min-height: 0; }
+      .add-button { font-size: .72rem; }
       .story { padding: 65px 0; }
       .story-grid { gap: 35px; }
       .story-image { height: 250px; }
-      .footer-inner { align-items: start; flex-direction: column; gap: 20px; }
+      .footer-inner { gap: 23px; grid-template-columns: 1fr; }
     }
 
     @media (max-width: 480px) {
@@ -159,12 +169,18 @@
       .cart-button { font-size: .76rem; padding: 9px 12px; }
       .hero { padding-bottom: 55px; padding-top: 27px; }
       .hero h1 { margin-bottom: 20px; }
+      .hero-contact { padding: 14px; }
       .hero-art { border-radius: 18px; height: 275px; }
       .hero-note { bottom: 13px; left: 13px; padding: 10px 12px; }
       .hero-note p { font-size: .7rem; }
       .section-top h2 { font-size: 2.7rem; }
       .menu-section { padding-top: 55px; }
-      .food-image { height: 205px; }
+      .menu-layout { gap: 8px; grid-template-columns: 88px minmax(0, 1fr); }
+      .filter { font-size: .68rem; padding: 9px 4px; }
+      .menu-results { padding: 7px; }
+      .food-image { height: 118px; }
+      .food-title h3 { font-size: .82rem; }
+      .food-details p { font-size: .7rem; }
       .story h2 { font-size: 3rem; }
       .cart-drawer { padding: 22px 18px; }
       .reservation-form .form-row { grid-template-columns: 1fr; }
@@ -179,7 +195,6 @@
       <a href="#menu">Menu</a><a href="#story">Our story</a><a href="#visit">Find us</a>
     </nav>
     <div class="header-actions">
-      <div class="location">Serving <strong>Secunda & surrounds</strong></div>
       <button class="cart-button" id="openCart" aria-label="Book a table">Reserve a table ↗</button>
     </div>
   </header>
@@ -190,30 +205,59 @@
         <div class="eyebrow">Hearty food · taste of home</div>
         <h1>Come hungry.<br /><em>Leave happy.</em></h1>
         <p class="hero-copy">Homemade African meals, slow-cooked with love and served with a generous helping of home. Pull up a chair in Secunda.</p>
+        <div class="hero-contact" id="visit">
+          <div class="hero-contact-item"><span aria-hidden="true">⌖</span><p>Find us</p><a href="https://www.google.com/maps/search/?api=1&query=Cnr+Steenkamp+%26+Louwrens+Muller+Secunda" target="_blank" rel="noopener noreferrer">Cnr Steenkamp &amp; Louwrens Muller</a></div>
+          <div class="hero-contact-item"><span aria-hidden="true">◷</span><p>Opening hours</p><strong>Mon–Fri 08:00 — 18:00</strong></div>
+          <div class="hero-contact-item"><span aria-hidden="true">☎</span><p>Call to reserve</p><a href="tel:+27170130110">+27 17 013 0110</a></div>
+        </div>
         <div class="hero-buttons"><button class="primary-button" id="heroReserve">Book your table ↗</button><a class="secondary-button" href="#menu">See the menu</a></div>
       </div>
       <div class="hero-art">
-        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1100&q=85" alt="A hearty African-inspired home cooked meal" />
+        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1100&q=85" alt="Golden samosas served with fresh garnish" />
         <div class="hero-note"><span>✦</span><p>Taste of home<small>made fresh every day</small></p></div>
       </div>
     </section>
 
-    <section class="info-strip" id="visit"><div class="container info-inner">
-      <div class="info-item"><span class="info-icon">⌖</span><p>Find us<strong>Cnr Steenkamp & Louwrens Muller</strong></p></div>
-      <div class="info-item"><span class="info-icon">◷</span><p>Open today<strong>Mon–Fri 08:00 — 18:00</strong></p></div>
-      <div class="info-item"><span class="info-icon">☎</span><p>Call to reserve<strong>+27 17 013 0110</strong></p></div>
-    </div></section>
-
     <section class="container menu-section" id="menu">
-      <div class="section-top"><div><div class="eyebrow">Today’s pot is on</div><h2>Food that<br />feels like home.</h2></div><p>Our kitchen serves hearty homemade African meals, full of flavour and made to be shared.</p></div>
-      <div class="filters" role="tablist"><button class="filter active" data-category="all">All dishes</button><button class="filter" data-category="mains">Mains</button><button class="filter" data-category="traditional">Traditional</button><button class="filter" data-category="sides">Sides</button><button class="filter" data-category="drinks">Drinks</button></div>
-      <div class="menu-grid" id="menuGrid"></div>
+      <div class="section-top"><h2>Food that<br />feels like home.</h2></div>
+      <div class="menu-layout">
+        <div class="filters" role="tablist" aria-label="Filter menu by category">
+          <button class="filter active" type="button" role="tab" aria-selected="true" data-category="all">All dishes</button>
+          <button class="filter" type="button" role="tab" aria-selected="false" data-category="mains">Mains</button>
+          <button class="filter" type="button" role="tab" aria-selected="false" data-category="traditional">Traditional</button>
+          <button class="filter" type="button" role="tab" aria-selected="false" data-category="sides">Sides</button>
+          <button class="filter" type="button" role="tab" aria-selected="false" data-category="drinks">Drinks</button>
+        </div>
+        <div class="menu-results" id="menuResults" role="tabpanel" tabindex="0" aria-label="Menu items">
+          <div class="menu-grid" id="menuGrid"></div>
+        </div>
+      </div>
     </section>
 
-    <section class="story" id="story"><div class="container story-grid"><img class="story-image" src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85" alt="A colourful homemade meal shared at the table" /><div><div class="eyebrow">A little about us</div><h2>Definitely<br />a taste of<br /><em>home.</em></h2><p>From mutton curry and beef to intloko, mogodu, umleqwa and dumpling, our food is rooted in the meals we grew up loving. Come for the plate, stay for the feeling.</p></div></div></section>
+    <section class="story" id="story"><div class="container story-grid"><img class="story-image" src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85" alt="A colourful homemade meal shared at the table" /><div><div class="eyebrow">A little about us</div><h2>Good food.<br />Good company.</h2><p>We bring people together over generous portions, familiar flavours and warm hospitality in Secunda.</p></div></div></section>
   </main>
 
-  <footer><div class="container footer-inner"><div><a class="brand" href="#top"><span class="brand-mark">T</span> The Eats</a><p style="margin-top:10px">Made with love in Secunda, Mpumalanga.</p></div><div class="socials"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">WhatsApp</a></div></div></footer>
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <a class="brand" href="#top"><span class="brand-mark">T</span> The Eats</a>
+        <p>Homemade meals and warm hospitality in Secunda, Mpumalanga.</p>
+      </div>
+      <div class="footer-details">
+        <h2>Visit or call</h2>
+        <a href="https://www.google.com/maps/search/?api=1&query=Cnr+Steenkamp+%26+Louwrens+Muller+Secunda" target="_blank" rel="noopener noreferrer">Cnr Steenkamp &amp; Louwrens Muller</a>
+        <a href="tel:+27170130110">+27 17 013 0110</a>
+        <p>Mon–Fri, 08:00 — 18:00</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <h2>Explore</h2>
+        <a href="#menu">Menu</a>
+        <a href="#story">Our story</a>
+        <a href="#visit">Find us</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">© 2026 The Eats. Made with love in Secunda.</div>
+  </footer>
 
   <aside class="cart-drawer" id="cartDrawer" aria-label="Reserve a table">
     <div class="drawer-head"><h2>Reserve a table</h2><button class="close-cart" id="closeCart" aria-label="Close reservation form">×</button></div>
@@ -233,20 +277,20 @@
 
   <script>
     const dishes = [
-      { name: 'Mutton curry', category: 'mains', price: 125, tag: 'House favourite', description: 'Slow-cooked mutton in a rich, fragrant curry sauce.', image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80' },
-      { name: 'Umleqwa & dumpling', category: 'traditional', price: 135, tag: 'Taste of home', description: 'Free-range chicken served with soft, fluffy dumpling.', image: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&w=700&q=80' },
-      { name: 'Beef stew', category: 'mains', price: 115, tag: '', description: 'Tender beef, slow-simmered with vegetables and herbs.', image: 'https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=700&q=80' },
-      { name: 'Mogodu with pap', category: 'traditional', price: 150, tag: 'Recommended', description: 'A soulful classic served with pap or phuthu.', image: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80' },
-      { name: 'Intloko', category: 'traditional', price: 110, tag: 'Weekend special', description: 'A proudly traditional dish prepared the homestyle way.', image: 'https://images.unsplash.com/photo-1547592180-7b6c5e2e9c1e?auto=format&fit=crop&w=700&q=80' },
-      { name: 'Rice & seasonal sides', category: 'sides', price: 45, tag: '', description: 'Fluffy rice with the day’s fresh homemade sides.', image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=700&q=80' },
-      { name: 'Coca-Cola', category: 'drinks', price: 22, tag: '330 ml', description: 'Ice-cold classic Coca-Cola.', image: 'https://images.unsplash.com/photo-1554866585-cd94860890b7?auto=format&fit=crop&w=700&q=80' },
-      { name: 'Sprite', category: 'drinks', price: 22, tag: '330 ml', description: 'Crisp, lemon-lime refreshment.', image: 'https://images.unsplash.com/photo-1629203849820-fdd70d49c38e?auto=format&fit=crop&w=700&q=80' },
-      { name: 'Appletiser', category: 'drinks', price: 28, tag: 'South African classic', description: 'Sparkling 100% apple juice, served chilled.', image: 'https://images.unsplash.com/photo-1568901839119-631418a3910d?auto=format&fit=crop&w=700&q=80' },
-      { name: 'Grapetiser', category: 'drinks', price: 28, tag: 'South African classic', description: 'Sparkling grape juice with a rich, fruity finish.', image: 'https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=700&q=80' },
-      { name: 'Liqui-Fruit', category: 'drinks', price: 25, tag: 'Local favourite', description: 'Chilled fruit juice — ask about today’s flavour.', image: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=700&q=80' },
-      { name: 'Five Roses tea', category: 'drinks', price: 20, tag: '', description: 'A comforting cup of South African tea.', image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=80' }
+      { name: 'Samosas', category: 'sides', price: 125, description: 'Golden, crisp pastry parcels served with a fresh garnish.', image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80' },
+      { name: 'Grilled meat platter', category: 'traditional', price: 135, description: 'Grilled meat served with chips and fresh tomato.', image: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&w=700&q=80' },
+      { name: 'Creamy salmon curry', category: 'mains', price: 115, description: 'Salmon in a creamy, spiced sauce with lemon and herbs.', image: 'https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=700&q=80' },
+      { name: 'Grilled salmon plate', category: 'mains', price: 150, description: 'Grilled salmon served with rice and fresh vegetables.', image: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80' },
+      { name: 'Seafood fried rice', category: 'sides', price: 45, description: 'Fried rice with seafood, herbs and fresh lemon.', image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=700&q=80' },
+      { name: 'Coca-Cola', category: 'drinks', price: 22, description: 'Ice-cold Coca-Cola.', image: 'https://images.unsplash.com/photo-1554866585-cd94860890b7?auto=format&fit=crop&w=700&q=80' },
+      { name: 'Pepsi', category: 'drinks', price: 22, description: 'Chilled Pepsi, served cold.', image: 'https://images.unsplash.com/photo-1629203849820-fdd70d49c38e?auto=format&fit=crop&w=700&q=80' },
+      { name: 'Milkshake', category: 'drinks', price: 28, description: 'A cold, creamy milkshake.', image: 'https://images.unsplash.com/photo-1568901839119-631418a3910d?auto=format&fit=crop&w=700&q=80' },
+      { name: 'Fruit cocktail', category: 'drinks', price: 28, description: 'A refreshing fruit cocktail with citrus.', image: 'https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=700&q=80' },
+      { name: 'Orange juice', category: 'drinks', price: 25, description: 'Chilled orange juice, freshly poured.', image: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=700&q=80' },
+      { name: 'Coffee', category: 'drinks', price: 20, description: 'A hot cup of coffee, served with a biscuit.', image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=80' }
     ];
     const menuGrid = document.getElementById('menuGrid');
+    const menuResults = document.getElementById('menuResults');
     const drawer = document.getElementById('cartDrawer');
     const overlay = document.getElementById('overlay');
 
@@ -264,7 +308,6 @@
           <article class="food-card">
             <div class="food-image">
               <img src="${dish.image}" alt="${dish.name}" loading="lazy" />
-              ${dish.tag ? `<span class="tag">${dish.tag}</span>` : ''}
             </div>
             <div class="food-details">
               <div class="food-title">
@@ -288,9 +331,12 @@
 
     document.querySelectorAll('.filter').forEach(button => {
       button.addEventListener('click', () => {
-        const activeButton = document.querySelector('.filter.active');
-        if (activeButton) activeButton.classList.remove('active');
-        button.classList.add('active');
+        document.querySelectorAll('.filter').forEach(filter => {
+          const isActive = filter === button;
+          filter.classList.toggle('active', isActive);
+          filter.setAttribute('aria-selected', String(isActive));
+        });
+        menuResults.scrollTop = 0;
         renderDishes(button.dataset.category);
       });
     });
