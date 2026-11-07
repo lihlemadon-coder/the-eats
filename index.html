@@ -249,51 +249,68 @@
     const menuGrid = document.getElementById('menuGrid');
     const drawer = document.getElementById('cartDrawer');
     const overlay = document.getElementById('overlay');
-    function toggleCart(open) { drawer.classList.toggle('open', open); overlay.classList.toggle('visible', open); document.body.classList.toggle('locked', open); }
-    function renderDishes(category = 'all') { menuGrid.innerHTML = dishes.filter(dish => category === 'all' || dish.category === category).map(dish => `<article class="food-card"><div class="food-image"><img src="${dish.image}" alt="${dish.name}" loading="lazy" />${dish.tag ? `<span class="tag">${dish.tag}</span>` : ''}</div><div class="food-details"><div class="food-title"><h3>${dish.name}</h3><span class="price">R${dish.price}</span></div><p>${dish.description}</p><button class="add-button" data-reserve>Reserve a table <span style="margin-left:auto">↗</span></button></div></article>`).join(''); }
-    menuGrid.addEventListener('click', event => { if (event.target.closest('[data-reserve]')) toggleCart(true); });
-    document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => { document.querySelector('.filter.active').classList.remove('active'); button.classList.add('active'); renderDishes(button.dataset.category); }));
+
+    function toggleCart(open) {
+      drawer.classList.toggle('open', open);
+      overlay.classList.toggle('visible', open);
+      document.body.classList.toggle('locked', open);
+      drawer.setAttribute('aria-hidden', String(!open));
+    }
+
+    function renderDishes(category = 'all') {
+      menuGrid.innerHTML = dishes
+        .filter(dish => category === 'all' || dish.category === category)
+        .map(dish => `
+          <article class="food-card">
+            <div class="food-image">
+              <img src="${dish.image}" alt="${dish.name}" loading="lazy" />
+              ${dish.tag ? `<span class="tag">${dish.tag}</span>` : ''}
+            </div>
+            <div class="food-details">
+              <div class="food-title">
+                <h3>${dish.name}</h3>
+                <span class="price">R${dish.price}</span>
+              </div>
+              <p>${dish.description}</p>
+              <button class="add-button" type="button" data-action="reserve">
+                Reserve a table <span style="margin-left:auto">↗</span>
+              </button>
+            </div>
+          </article>
+        `)
+        .join('');
+    }
+
+    menuGrid.addEventListener('click', event => {
+      const reserveButton = event.target.closest('[data-action="reserve"]');
+      if (reserveButton) toggleCart(true);
+    });
+
+    document.querySelectorAll('.filter').forEach(button => {
+      button.addEventListener('click', () => {
+        const activeButton = document.querySelector('.filter.active');
+        if (activeButton) activeButton.classList.remove('active');
+        button.classList.add('active');
+        renderDishes(button.dataset.category);
+      });
+    });
+
     document.getElementById('openCart').addEventListener('click', () => toggleCart(true));
     document.getElementById('heroReserve').addEventListener('click', () => toggleCart(true));
     document.getElementById('closeCart').addEventListener('click', () => toggleCart(false));
     overlay.addEventListener('click', () => toggleCart(false));
-    document.getElementById('reservationForm').addEventListener('submit', event => { event.preventDefault(); toggleCart(false); const toast = document.getElementById('toast'); toast.textContent = 'Reservation request sent ✦'; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2600); event.target.reset(); });
+
+    document.getElementById('reservationForm').addEventListener('submit', event => {
+      event.preventDefault();
+      toggleCart(false);
+      const toast = document.getElementById('toast');
+      toast.textContent = 'Reservation request sent ✦';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2600);
+      event.target.reset();
+    });
+
     renderDishes();
-  </script>
-  <script>
-    /*
-    const products = [
-      { id: 1, name: 'Green goddess bowl', category: 'bowls', price: 89, tag: 'Plant powered', description: 'Roasted sweet potato, avo, greens & tahini.', image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=700&q=80' },
-      { id: 2, name: 'The classic burger', category: 'burgers', price: 105, tag: 'Fan favourite', description: 'Smash beef patty, cheddar, pickles & secret sauce.', image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80' },
-      { id: 3, name: 'Crispy chicken bowl', category: 'bowls', price: 98, tag: '', description: 'Crispy chicken, jasmine rice, slaw & chilli mayo.', image: 'https://images.unsplash.com/photo-1547592180-7b6c5e2e9c1e?auto=format&fit=crop&w=700&q=80' },
-      { id: 4, name: 'Loaded fries', category: 'sides', price: 55, tag: '', description: 'Golden fries, cheese sauce, spring onion & herbs.', image: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=80' },
-      { id: 5, name: 'Berry nice smoothie', category: 'drinks', price: 49, tag: 'New', description: 'Strawberry, blueberry, banana & oat milk.', image: 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=700&q=80' },
-      { id: 6, name: 'Salted caramel shake', category: 'drinks', price: 59, tag: '', description: 'Vanilla soft serve, caramel & a pinch of sea salt.', image: 'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=700&q=80' }
-    ];
-    let cart = [];
-    const menuGrid = document.getElementById('menuGrid');
-    const money = value => `R${value.toFixed(2)}`;
-    function renderMenu(category = 'all') {
-      menuGrid.innerHTML = products.filter(item => category === 'all' || item.category === category).map(item => `
-        <article class="food-card"><div class="food-image"><img src="${item.image}" alt="${item.name}" loading="lazy" />${item.tag ? `<span class="tag">${item.tag}</span>` : ''}</div><div class="food-details"><div class="food-title"><h3>${item.name}</h3><span class="price">${money(item.price)}</span></div><p>${item.description}</p><button class="add-button" data-add="${item.id}">Add to bag <span style="margin-left:auto">＋</span></button></div></article>`).join('');
-    }
-    function renderCart() {
-      const items = document.getElementById('cartItems');
-      const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-      document.getElementById('cartCount').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
-      document.getElementById('cartTotal').textContent = money(total);
-      items.innerHTML = cart.length ? cart.map(item => `<div class="cart-row"><img src="${item.image}" alt="" /><div class="cart-row-info"><strong>${item.name}</strong><small>${money(item.price)}</small></div><div class="quantity"><button data-minus="${item.id}">−</button><span>${item.quantity}</span><button data-plus="${item.id}">＋</button></div></div>`).join('') : '<p class="cart-empty">Your bag is waiting for something delicious.</p>';
-    }
-    function showToast() { const toast = document.getElementById('toast'); toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 1800); }
-    menuGrid.addEventListener('click', event => { const id = Number(event.target.closest('[data-add]')?.dataset.add); if (!id) return; const product = products.find(item => item.id === id); const existing = cart.find(item => item.id === id); existing ? existing.quantity++ : cart.push({ ...product, quantity: 1 }); renderCart(); showToast(); });
-    document.getElementById('cartItems').addEventListener('click', event => { const plus = Number(event.target.dataset.plus); const minus = Number(event.target.dataset.minus); const id = plus || minus; if (!id) return; const item = cart.find(product => product.id === id); if (plus) item.quantity++; else item.quantity--; cart = cart.filter(product => product.quantity > 0); renderCart(); });
-    document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => { document.querySelector('.filter.active').classList.remove('active'); button.classList.add('active'); renderMenu(button.dataset.category); }));
-    const drawer = document.getElementById('cartDrawer'); const overlay = document.getElementById('overlay');
-    function toggleCart(open) { drawer.classList.toggle('open', open); overlay.classList.toggle('visible', open); document.body.classList.toggle('locked', open); }
-    document.getElementById('openCart').addEventListener('click', () => toggleCart(true)); document.getElementById('closeCart').addEventListener('click', () => toggleCart(false)); overlay.addEventListener('click', () => toggleCart(false));
-    document.getElementById('checkout').addEventListener('click', () => { if (!cart.length) { alert('Your bag is empty — add something delicious first!'); return; } alert('Thanks! In a real app, this is where your secure checkout would open.'); });
-    renderMenu(); renderCart();
-    */
   </script>
 </body>
 </html>
