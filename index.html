@@ -206,7 +206,7 @@
         <p class="hero-copy">Homemade African meals, slow-cooked with love and served with a generous helping of home. Pull up a chair in Secunda.</p>
         <div class="hero-contact" id="visit">
           <div class="hero-contact-item"><span aria-hidden="true">⌖</span><p>Find us</p><a href="https://www.google.com/maps/search/?api=1&query=Cnr+Steenkamp+%26+Louwrens+Muller+Secunda" target="_blank" rel="noopener noreferrer">Cnr Steenkamp &amp; Louwrens Muller</a></div>
-          <div class="hero-contact-item"><span aria-hidden="true">◷</span><p>Opening hours</p><strong>Mon–Fri 08:00 — 18:00</strong></div>
+          <div class="hero-contact-item"><span aria-hidden="true">◷</span><p>Opening hours</p><strong>Mon–Fri 08:00 — 18:30<br />Sat 09:00 — 18:00 · Sun closed</strong></div>
           <div class="hero-contact-item"><span aria-hidden="true">☎</span><p>Call to reserve</p><a href="tel:+27170130110">+27 17 013 0110</a></div>
         </div>
         <div class="hero-buttons"><button class="primary-button" id="heroReserve">Book your table ↗</button><a class="secondary-button" href="#menu">See the menu</a></div>
@@ -246,7 +246,8 @@
         <h2>Visit or call</h2>
         <a href="https://www.google.com/maps/search/?api=1&query=Cnr+Steenkamp+%26+Louwrens+Muller+Secunda" target="_blank" rel="noopener noreferrer">Cnr Steenkamp &amp; Louwrens Muller</a>
         <a href="tel:+27170130110">+27 17 013 0110</a>
-        <p>Mon–Fri, 08:00 — 18:00</p>
+        <p>Mon–Fri, 08:00 — 18:30</p>
+        <p>Sat, 09:00 — 18:00 · Sun closed</p>
       </div>
       <nav class="footer-links" aria-label="Footer navigation">
         <h2>Explore</h2>
@@ -265,7 +266,7 @@
       <form class="reservation-form" id="reservationForm">
         <label>Your name<input required name="name" type="text" placeholder="e.g. Thandi Mokoena" /></label>
         <label>Phone number<input required name="phone" type="tel" placeholder="082 123 4567" /></label>
-        <div class="form-row"><label>Date<input required name="date" type="date" /></label><label>Time<select required name="time"><option value="">Select</option><option>12:00</option><option>13:00</option><option>18:00</option><option>19:00</option></select></label></div>
+        <div class="form-row"><label>Date<input required name="date" type="date" /></label><label>Time<select required name="time"><option value="">Select</option><option>09:00</option><option>12:00</option><option>13:00</option><option>17:00</option><option>18:00</option></select></label></div>
         <label>Number of guests<select required name="guests"><option value="">Select</option><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select></label>
         <label>Anything we should know? <input name="note" type="text" placeholder="Birthday, dietary needs..." /></label>
         <button class="checkout" type="submit">Request reservation →</button>
@@ -278,7 +279,7 @@
     const dishes = [
       { name: 'Samosas', category: 'sides', price: 125, description: 'Golden, crisp pastry parcels served with a fresh garnish.', image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80' },
       { name: 'Grilled meat platter', category: 'traditional', price: 135, description: 'Grilled meat served with chips and fresh tomato.', image: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&w=700&q=80' },
-      { name: 'Creamy salmon curry', category: 'mains', price: 115, description: 'Salmon in a creamy, spiced sauce with lemon and herbs.', image: 'https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=700&q=80' },
+      { name: 'Ox liver meal', category: 'traditional', price: 115, description: 'Seasoned ox liver served with pap and fresh sides.', image: 'assets/ox-liver-meal.jpeg' },
       { name: 'Grilled salmon plate', category: 'mains', price: 150, description: 'Grilled salmon served with rice and fresh vegetables.', image: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80' },
       { name: 'Seafood fried rice', category: 'sides', price: 45, description: 'Fried rice with seafood, herbs and fresh lemon.', image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=700&q=80' },
       { name: 'Coca-Cola', category: 'drinks', price: 22, description: 'Ice-cold Coca-Cola.', image: 'https://images.unsplash.com/photo-1554866585-cd94860890b7?auto=format&fit=crop&w=700&q=80' },
