@@ -29,8 +29,8 @@
     .container { max-width: 1190px; margin: 0 auto; padding: 0 28px; }
     .eyebrow { color: var(--orange); font-size: .75rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
     .site-header { align-items: center; display: flex; height: 82px; justify-content: space-between; }
-    .brand { align-items: center; display: flex; gap: 10px; font-family: 'Pacifico', cursive; font-size: 1.22rem; letter-spacing: -.06em; }
-    .brand-mark { align-items: center; background: #28a85b; border: 2px solid white; border-radius: 5px; color: white; display: inline-flex; font-family: 'Pacifico', cursive; font-size: 1.1rem; height: 34px; justify-content: center; transform: rotate(-4deg); width: 34px; }
+    .brand { align-items: center; display: inline-flex; }
+    .brand img { display: block; height: auto; max-height: 58px; width: 150px; }
     .nav { display: flex; gap: 34px; margin-left: 100px; }
     .nav a { color: var(--muted); font-size: .92rem; font-weight: 600; transition: color .2s; }
     .nav a:hover { color: var(--ink); }
@@ -164,8 +164,7 @@
     }
 
     @media (max-width: 480px) {
-      .brand { font-size: 1.05rem; }
-      .brand-mark { height: 30px; width: 30px; }
+      .brand img { max-height: 46px; width: 120px; }
       .cart-button { font-size: .76rem; padding: 9px 12px; }
       .hero { padding-bottom: 55px; padding-top: 27px; }
       .hero h1 { margin-bottom: 20px; }
@@ -190,7 +189,7 @@
 <body>
   <div class="overlay" id="overlay"></div>
   <header class="container site-header">
-    <a class="brand" href="#top"><span class="brand-mark">T</span> The Eats</a>
+    <a class="brand" href="#top" aria-label="The Eats home"><img src="assets/the-eats-logo.jpeg" alt="The Eats — Savour the taste" /></a>
     <nav class="nav" aria-label="Main navigation">
       <a href="#menu">Menu</a><a href="#story">Our story</a><a href="#visit">Find us</a>
     </nav>
@@ -240,7 +239,7 @@
   <footer>
     <div class="container footer-inner">
       <div>
-        <a class="brand" href="#top"><span class="brand-mark">T</span> The Eats</a>
+        <a class="brand" href="#top" aria-label="The Eats home"><img src="assets/the-eats-logo.jpeg" alt="The Eats — Savour the taste" /></a>
         <p>Homemade meals and warm hospitality in Secunda, Mpumalanga.</p>
       </div>
       <div class="footer-details">
